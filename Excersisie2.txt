@@ -1,0 +1,25 @@
+Jakub Serwatka 
+job@jsit.pl
+
+FutureStars | IT | DevOps
+
+Stage 1:
+
+mkdir -p /docker/jenkins_home
+chown -R 1000:1000 /docker/jenkins_home
+docker run -p 8080:8080 -p 50000:50000 -d --name jenkins -v /docker/jenkins_home:/var/jenkins_home jenkins/jenkins
+
+#copy installation password
+docker logs jenkins
+#install jenkins with default plugins
+
+docker exec -ti jenkins bash
+ssh-keygen -t rsa -b 2048 -f /var/jenkins_home/.ssh/id_rsa -q -N ""
+#copy public key to GitHub>Project>Settings>Deploy Keys>Add Deploy key
+cat /var/jenkins_home/.ssh/id_rsa.pub
+cat /var/jenkins_home/.ssh/id_rsa
+exit
+
+
+#GitHub GUI: Profile>Settings>Developer Settings>Personal Access Tokens>Generate new token>Note:jenkins>Select repo scope>Generate token>Copy token
+#jenkins GUI: New Item>Name: ex2>Multibranch Pipeline>OK>Display Name>ex2>Add Source>GitHub>URL (clone from Github project main page)>Credentials>Add>ex2>User:user>Password{GitHub Personal Access Token}
