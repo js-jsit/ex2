@@ -1,21 +1,21 @@
 # ex2
  FutureStars Ex2
-Stage 2:
+## Stage 2:
 
-docker run -p 8080:8080 -p 50000:50000 -d --name jenkins --restart unless-stopped --privileged -u root  -v /var/run/docker.sock:/var/run/docker.sock -v jenkins_home:/var/jenkins_home jenkins/jenkins
+*docker run -p 8080:8080 -p 50000:50000 -d --name jenkins --restart unless-stopped --privileged -u root  -v /var/run/docker.sock:/var/run/docker.sock -v jenkins_home:/var/jenkins_home jenkins/jenkins*
 
-#copy installation password to web GUI
-docker logs jenkins
-#install jenkins with default plugins
+**copy installation password to web GUI**
+*docker logs jenkins*
+**install jenkins with default plugins**
 
-Stage 3 & 4:
+## Stage 3 & 4:
 
-#GitHub GUI: Profile>Settings>Developer Settings>Personal Access Tokens>Generate new token>Note:jenkins>Select repo scope>Generate token>Copy token
-#jenkins GUI: New Item>Name: ex2>Multibranch Pipeline>OK>Display Name>ex2>Add Source>GitHub>URL (clone from Github project main page)>
->Credentials>Add>ex2>User:user>Password{GitHub Personal Access Token}>
->Discover Branches>All branches>Build Configuration>Periodically>30minutes
+>GitHub GUI: Profile>Settings>Developer Settings>Personal Access Tokens>Generate new token>Note:jenkins>Select repo scope>Generate token>Copy token
+>jenkins GUI: New Item>Name: ex2>Multibranch Pipeline>OK>Display Name>ex2>Add Source>GitHub>URL (clone from Github project main page)>
+>>Credentials>Add>ex2>User:user>Password{GitHub Personal Access Token}>
+>>Discover Branches>All branches>Build Configuration>Periodically>30minutes
 
-Stage 5:
+## Stage 5:
 #install docker in jenkins docker container:
 
 #on docker host:
