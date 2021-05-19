@@ -1,14 +1,14 @@
 pipeline {
     agent any
     environment { 
-		registry = "jsjsit/ex2" 
-		registryCredential = 'DockerAccessToken'
-		dockerImage = '' 
+	registry = "jsjsit/ex2" 
+	registryCredential = 'DockerAccessToken'
+	dockerImage = '' 
         ////Use Pipeline Utility Steps plugin to read information from pom.xml into env variables
         //POM_VERSION = readMavenPom().getVersion()
     }
-        stages {
-        stage('Build') {
+    stages {
+      	stage('Build') {
             steps {
                 echo 'Building..'
                 //echo '${POM_VERSION}'
