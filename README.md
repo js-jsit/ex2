@@ -16,18 +16,16 @@
 >\>Discover Branches>All branches>Build Configuration>Periodically>30minutes
 
 ## Stage 5:
-#install docker in jenkins docker container:
+**install docker in jenkins docker container:**
+**on docker host:**
 
-#on docker host:
-sudo useradd -M -u 1000 jenkins
+*sudo useradd -M -u 1000 jenkins
 sudo usermod -L jenkins
 sudo usermod -aG docker jenkins
+docker exec -it -u root jenkins bash*
 
-
-docker exec -it -u root jenkins bash
-
-#on docker client:
-usermod -aG docker jenkins
+**on docker client:**
+*usermod -aG docker jenkins
 apt-get update && \
 apt-get -y install apt-transport-https \
      ca-certificates \
@@ -41,12 +39,11 @@ add-apt-repository \
    stable" && \
 apt-get update && \
 apt-get -y install docker-ce
+exit*
+
+**on docker host:**
+*docker restart jenkins*
 
 
-exit
-#on docker host:
-docker restart jenkins
-
-
-#after compiling and building docker image:
-docker run -p 8081:8080 jsjsit/ex2:34
+**after compiling and building docker image:**
+*docker run -p 8081:8080 jsjsit/ex2:34*
