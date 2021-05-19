@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh 'chmod +x ./app/mvnw'
-                sh './app/mvnw clean compile'
+                sh './app/mvnw -f ./app/pom.xml clean compile'
             }
         }
       }
