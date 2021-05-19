@@ -5,9 +5,14 @@ FutureStars | IT | DevOps
 
 Stage 1:
 
-mkdir -p /docker/jenkins_home
-chown -R 1000:1000 /docker/jenkins_home
-docker run -p 8080:8080 -p 50000:50000 -d --name jenkins -v /docker/jenkins_home:/var/jenkins_home jenkins/jenkins
+#mkdir -p /docker/jenkins_home
+#chown -R 1000:1000 /docker/jenkins_home
+
+
+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
+
+
+docker run -p 8080:8080 -p 50000:50000 -d --name jenkins --restart unless-stopped -v jenkins_home:/var/jenkins_home jenkins/jenkins
 
 #copy installation password
 docker logs jenkins
@@ -22,4 +27,7 @@ exit
 
 
 #GitHub GUI: Profile>Settings>Developer Settings>Personal Access Tokens>Generate new token>Note:jenkins>Select repo scope>Generate token>Copy token
-#jenkins GUI: New Item>Name: ex2>Multibranch Pipeline>OK>Display Name>ex2>Add Source>GitHub>URL (clone from Github project main page)>Credentials>Add>ex2>User:user>Password{GitHub Personal Access Token}
+#jenkins GUI: New Item>Name: ex2>Multibranch Pipeline>OK>Display Name>ex2>Add Source>GitHub>URL (clone from Github project main page)>
+>Credentials>Add>ex2>User:user>Password{GitHub Personal Access Token}>
+>Discover Branches>All branches>Build Configuration>Periodically>30minutes
+
