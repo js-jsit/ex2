@@ -12,8 +12,8 @@
 
 >GitHub GUI: Profile>Settings>Developer Settings>Personal Access Tokens>Generate new token>Note:jenkins>Select repo scope>Generate token>Copy token
 >jenkins GUI: New Item>Name: ex2>Multibranch Pipeline>OK>Display Name>ex2>Add Source>GitHub>URL (clone from Github project main page)>
->>Credentials>Add>ex2>User:user>Password{GitHub Personal Access Token}>
->>Discover Branches>All branches>Build Configuration>Periodically>30minutes
+>\>Credentials>Add>ex2>User:user>Password{GitHub Personal Access Token}>
+>\>Discover Branches>All branches>Build Configuration>Periodically>30minutes
 
 ## Stage 5:
 #install docker in jenkins docker container:
