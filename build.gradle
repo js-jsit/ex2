@@ -4,7 +4,7 @@ plugins {
 
 jar {
   manifest {
-    attributes 'Main-Class': 'com.example.jsit.ex2.Ex2Application'
+    attributes 'Main-Class': 'Ex2Application'
   }
 }
 
