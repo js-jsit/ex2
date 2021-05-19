@@ -5,18 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                echo 'test webhook2'
+                sh '.mvnw clean compile'
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-    }
+      }
 }
