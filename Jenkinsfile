@@ -5,8 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'chmod +x ./app/mvnw'
-                sh './app/mvnw -f ./app/pom.xml clean compile'
+                sh 'chmod +x ./mvnw'
+                sh './mvnw clean compile'
             }
         }
       }
