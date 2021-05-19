@@ -7,7 +7,7 @@ pipeline {
                 echo 'Building..'
                 sh 'chmod +x ./mvnw'
                 sh './mvnw clean compile'
-                sh './mvnw spring-boot:run'
+                #sh './mvnw spring-boot:run'
             }
         }
       }
