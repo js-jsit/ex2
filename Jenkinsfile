@@ -23,27 +23,29 @@ pipeline {
                 //sh './mvnw spring-boot:run'
             }
         }
-        stage('Building our image') { 
-			steps { 
-				script { 
-					dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+        stage('Building docker image') { 
+		steps { 
+			script {
+				echo 'Building docker image..'
+				dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+			}
+		} 
+	}
+	stage('Deploy image to DockerHub') { 
+		steps { 
+			script {
+				echo 'Deploing image to DockerHub..'
+				docker.withRegistry( '', registryCredential ) { 
+				dockerImage.push() 
 				}
 			} 
 		}
-		stage('Deploy our image') { 
-			steps { 
-				script { 
-					docker.withRegistry( '', registryCredential ) { 
-						dockerImage.push() 
-					}
-				} 
-			}
+	}
+	stage('Cleaning up') { 
+		steps {
+			echo 'Cleaning up..'
+			sh "docker rmi $registry:$BUILD_NUMBER" 
 		}
-		stage('Cleaning up') { 
-			steps { 
-				sh "docker rmi $registry:$BUILD_NUMBER" 
-			}
-		} 
-        
+	}
     }
 }
